@@ -1,4 +1,0 @@
-Collection of WebSocket Routes for testing:
-
-https://www.postman.com/galactic-comet-4485/workspace/share-team-workspace/collection/66192f49f888c16a533cdc5f?action=share&creator=33495739
-
