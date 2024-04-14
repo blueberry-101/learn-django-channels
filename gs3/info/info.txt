@@ -1,0 +1,3 @@
+WHAT DOES THIS PROJECT FOLDER TAUGHT?
+
+It taught me all the method of Websocket Object of API in javascipt.

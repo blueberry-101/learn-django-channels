@@ -1,0 +1,11 @@
+Writing WebSocket client applications
+
+https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
+
+Writing WebSocket servers
+
+https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers
+
+AsyncIo - Asyncronous programming python
+
+https://youtube.com/playlist?list=PLhNSoGM2ik6SIkVGXWBwerucXjgP1rHmB&feature=shared
