@@ -1,0 +1,14 @@
+IN THIS gs4 PROJECT WE WILL LEARN ABOUT THE DJANGO CHANNEL LAYER USING REDIS CHANNEL LAYER
+
+packages = django, channels==3.0.4, channel_redis = 3.3.1
+
+This layers help us to communicate with the channel instances and the making the group of these channel instances.  
+
+To practice this project again.
+
+STEP1 : CREATE A TYPICAL SERVER.
+
+Please By own create the server and write client side JS to send and recive messages before even
+implementing the CHANNEL LAYER.
+
+OUTPUT : The Joining users will be able to chat with each other .
