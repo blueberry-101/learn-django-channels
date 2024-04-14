@@ -21,6 +21,9 @@
             
         })
 
+        socket.addEventListener("close",(event)=>{
+            console.log("disconnected",event);
+        })
     </script>
 </body>
 </html>
