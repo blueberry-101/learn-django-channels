@@ -5,7 +5,7 @@
 ## gs2 (screenshots)
 
 Async Consumer 1
-
+![Image 1](https://github.com/blueberry-101/learn-django-channels/blob/main/gs2/Info/screenshots/Async%20consumer%201.png)
 <a href="https://github.com/blueberry-101/learn-django-channels/blob/main/gs2/Info/screenshots/Async%20consumer%201.png" />
 <img src="image-source-url-location.com" />
 
