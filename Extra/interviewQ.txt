@@ -1,0 +1,24 @@
+Q. what does websocket allows us or they used for?
+
+ws allows two-way , event driven communication betweent the browser and the server.
+
+additionally,
+its great for real time applications
+
+learning yt playlist.
+
+https://youtube.com/playlist?list=PLQnljOFTspQXNP6mQchJVP3S-3oKGEuw9&feature=sharedf
+
+Q. CAN YOU ITERATE WITHOUT USING FOR LOOP AND ONLY WITH IF ELSE STATEMENT?
+A. 
+yes
+
+l = [1,2,3,4,5,6]
+
+for i in l:
+    if i==2:
+        print("yes")
+        break
+
+if i in l:
+print("yes")
