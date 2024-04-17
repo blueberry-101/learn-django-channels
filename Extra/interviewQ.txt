@@ -22,3 +22,19 @@ for i in l:
 
 if i in l:
 print("yes")
+
+Q. CAN YOU APPLY A FUNCTION ON AN ARRAY OF VALUES WITHOUT FOR LOOP?
+
+A. yes
+with the help of map function.
+
+Q. CAN YOU FILTER OUT ARRAY OF VALUES ON THE BASIS OF TRUE OR FALSE OF A FUNCTION.
+
+A. yes
+with the help of filter function.
+
+Q. CAN YOU GIVE SERIAL NUMBER (ex- 0,1,2,3) TO MY ITERABLE?
+A. yes
+with the help of enumerate function.
+
+
