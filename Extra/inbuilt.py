@@ -2,7 +2,7 @@
 Write the useful inbuilt functions.
 """
 
-# map function is a generator.
+# map (function,iterable,*iterables)
 """
 map function is a generator function which takes function and iterable as an argument and returns the iterator object therefore when we apply next() function on the iterator object it triggers the __next__() magic method and return the next value of function.
 """
@@ -28,7 +28,7 @@ print(list(map_obj))
 """
 
 
-# filter() 
+# filter(function,iterable) 
 
 iterable = ["bob","job","mob"]
 
@@ -52,7 +52,7 @@ bob
 []
 """
 
-# enumerate()
+# enumerate(iterable, start=0)
 
 iterable = ["bob","job","mob"]
 
@@ -71,7 +71,7 @@ print(list(enumerate_obj))
 [(1, 'job'), (2, 'mob')]
 """
 
-# zip()
+# zip(iterbale1,iterable2,iterable,3...)
 
 iterable1 = (1,2,3,4,5)
 iterable2 = [0,9,8,7,6]
