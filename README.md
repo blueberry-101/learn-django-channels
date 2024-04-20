@@ -31,3 +31,13 @@ Basic JS Websocket API methods.
 Basic Chat Room with a common URL
 
 ![Image 6](https://github.com/blueberry-101/learn-django-channels/blob/main/gs4/info/chatting.png)
+
+## gzeneric1 (screenshots)
+
+Basic Implementation of (generic consumers) WebsocketConsumer
+
+![Image 7](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric1/info/WebsocketConsumer.png)
+
+Basic Implementation of (generic consumers) AsyncWebsocketConsumer
+
+![Image 7](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric1/info/AsyncWebsocketConsumer.png)
