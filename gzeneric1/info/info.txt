@@ -1,0 +1,63 @@
+Q. WHAT ARE AWAITABLE OBJECTS WHAT ARE NON-AWAITABLE OBJECTS?
+A. 
+
+Awaitable objects include:
+
+Coroutines: Asynchronous functions defined using the async def syntax.
+Asynchronous generators: Generators defined using the async def syntax with yield statements inside.
+Awaitable objects returned by asynchronous functions or methods when awaited.
+
+Non-awaitable objects:
+
+These objects typically include built-in types like strings, integers, lists, dictionaries, etc. Since they do not support asynchronous behavior, attempting to use await with them will raise a TypeError.
+
+To summarize:
+
+Awaitable objects are objects that can be used with the await keyword in asynchronous code. They implement the __await__() method.
+
+Non-awaitable objects are objects that cannot be used with the await keyword in asynchronous code. They do not implement the __await__() method.
+
+Q. CAN YOU CREATE A AWAITABLE OBJECT?
+A. 
+
+The __await__() method in Python is a special method that enables an object to be an awaitable object. 
+
+When an object implements __await__(), it returns an iterator, allowing it to be used in asynchronous code with the await keyword.
+
+Here's a simple example of a class implementing the __await__() method:
+
+class AwaitableObject:
+    def __await__(self):
+        # Returning an iterator that yields a coroutine object
+        async def coroutine():
+            await asyncio.sleep(1)
+            return "Hello, World!"
+        
+        return coroutine().__await__()
+
+async def main():
+    awaitable_obj = AwaitableObject()
+    result = await awaitable_obj
+    print(result)
+
+asyncio.run(main())
+
+
+More Discriptively:
+
+
+The __await__() method in Python is a special method that enables an object to be an awaitable object. When an object implements __await__(), it returns an iterator, allowing it to be used in asynchronous code with the await keyword.
+
+Here's how the __await__() method works:
+
+Returns an iterator: The __await__() method should return an iterator object. This iterator will be used to control the execution flow when the object is awaited. The iterator's __next__() method will be called repeatedly to advance the execution.
+
+Iteration protocol: The iterator returned by __await__() must follow the iteration protocol. This means it should implement the __iter__() method, which returns itself, and the __next__() method, which returns the next value or raises StopIteration when there are no more values.
+
+Asynchronous behavior: The iterator should yield objects that represent asynchronous operations, such as coroutines or futures. These objects typically include coroutine objects (returned by async def functions), future objects, or other awaitable objects.
+
+
+Q(unsolved). WHY SLEEPING TO 4 SECONDS DOESN'T END UP DISCONNECTION WHILE 5 SECONDS SLEEP CAUSING DISCONNECTION?
+A.
+
+In your code snippet, the connect() method of your MyAWSConsumer class appears to be intended to disconnect after a certain amount of time. 
