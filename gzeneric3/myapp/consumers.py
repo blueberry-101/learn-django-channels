@@ -9,12 +9,12 @@ class MyWSconsumer(WebsocketConsumer):
         channel_name = self.channel_name  # 1
         kwargs = self.scope.get("url_route").get("kwargs")
         self.group_name = kwargs.get("group_name")  # 2
-        scope = self.scope
         """
             channel scope {'type': 'websocket', 'path': '/ws/gwc/in/12/', 'raw_path': b'/ws/gwc/in/12/', 'headers': [(b'sec-websocket-version', b'13'), (b'sec-websocket-key', b'SMpj+yx4upqPy7xmwp4j8g=='), (b'connection', b'Upgrade'), (b'upgrade', b'websocket'), (b'sec-websocket-extensions', b'permessage-deflate; client_max_window_bits'), (b'host', b'127.0.0.1:8000')], 'query_string': b'', 'client': ['127.0.0.1', 57701], 'server': ['127.0.0.1', 8000], 'subprotocols': [], 'asgi': {'version': '3.0'}, 'path_remaining': '', 'url_route': {'args': (), 'kwargs': {'groupname': 'in', 'number': 12}}}
         """
         print("channel name",channel_name)
         print("channel group name",self.group_name)
+        print("scope",self.scope)
         async_to_sync(self.channel_layer.group_add)(
             self.group_name,
             channel_name
@@ -27,23 +27,31 @@ class MyWSconsumer(WebsocketConsumer):
     
     def receive(self, text_data=None, bytes_data=None):
         message_dict = json.loads(text_data)
-        # code for saving data in group
-        group = Group.objects.get(name = self.group_name)
-        chat_model = Chats(
-            group = group,
-            texts = message_dict.get("msg")
-        )
-        chat_model.save()
-        ##
-        async_to_sync(self.channel_layer.group_send)(
-            self.group_name,
-            {
-                "type":"message.send",
-                "message":message_dict.get("msg")
-            }
-        )
-        return super().receive(text_data, bytes_data)
     
+        if self.scope["user"].is_authenticated:
+            # code for saving data in group
+            group = Group.objects.get(name = self.group_name)
+            chat_model = Chats(
+                group = group,
+                texts = message_dict.get("msg")
+            )
+            chat_model.save()
+            ##
+            async_to_sync(self.channel_layer.group_send)(
+                self.group_name,
+                {
+                    "type":"message.send",
+                    "message":message_dict.get("msg")
+                }
+            )
+            return super().receive(text_data, bytes_data)
+        else:
+            self.send(
+                text_data= json.dumps({
+                    "msg":"Login Required"
+                })
+            )
+        
     def message_send(self,event):
         self.send(
             text_data=json.dumps(
@@ -52,7 +60,7 @@ class MyWSconsumer(WebsocketConsumer):
                 }
             )
             )
-        print(event)  # {'type': 'message.send', 'message': 'Hi I u are using postman'}
+        print(event)  # {'type': 'message.send', 'message': 'Hi I u are using postman'}   
      
     def disconnect(self, code):
         async_to_sync(self.channel_layer.group_discard)(
@@ -85,26 +93,33 @@ class MyAWSconsumer(AsyncWebsocketConsumer):
     
     async def receive(self, text_data=None, bytes_data=None):
         message_dict = json.loads(text_data)
-        # code for saving data in group
-        group = await database_sync_to_async(Group.objects.get)(name = self.group_name)
-        chat_model = Chats(
-            group = group,
-            texts = message_dict.get("msg")
-        )
-        await database_sync_to_async(chat_model.save)()
+        if self.scope.get("user").is_authenticated:
+            # code for saving data in group
+            group = await database_sync_to_async(Group.objects.get)(name = self.group_name)
+            chat_model = Chats(
+                group = group,
+                texts = message_dict.get("msg")
+            )
+            await database_sync_to_async(chat_model.save)()
 
-        #  await database_sync_to_async(chat_model.save()) not possible
-        
-        ##
+            #  await database_sync_to_async(chat_model.save()) not possible
+            
+            ##
 
-        await self.channel_layer.group_send(
-            self.group_name,
-            {
-                "type":"message.send",
-                "message":message_dict.get("msg")
-            }
-        )
-        return await super().receive(text_data, bytes_data)
+            await self.channel_layer.group_send(
+                self.group_name,
+                {
+                    "type":"message.send",
+                    "message":message_dict.get("msg")
+                }
+            )
+            return await super().receive(text_data, bytes_data)
+        else:
+            await self.send(
+                text_data= json.dumps({
+                    "msg":"Login Required"
+                })
+            )
     
     async def message_send(self,event):
         await self.send(
