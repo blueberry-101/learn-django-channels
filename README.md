@@ -59,3 +59,10 @@ Basic Implementation of Database of SQLLite in Websocket Consumer.
 This enables the Chat Room to save messages after closing the tab
 
 ![Image 9](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric3/info/Chat-demo.png)
+
+Basic Implementation of Cookie Based Authentication in Websocket Consumers.
+
+This enables only authenticated user to send message not deprived from seeing coming messages.
+
+![Image 9](https://github.com/blueberry-101/learn-django-channels/tree/main/gzeneric3/info)
+
