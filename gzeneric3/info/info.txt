@@ -1,0 +1,28 @@
+Q. WHAT IS THE PURPOSE OF THIS PROJECT?
+
+A. 
+The purpose of this project is to implement the database in the django channels.
+
+Q. WHAT IS THE SIZE OF TUPLE, LIST AND DICTIONARY OBJECT IN MEMEORY?
+A.
+(method) def __sizeof__() -> int
+Size of object in memory, in bytes.
+
+tuple - 24
+list - 40
+dictionary - 48
+
+Q. WHAT ERROR TOOK YOU LONG TO HANDLE IN THIS PROJECT?
+A.
+" django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async."
+
+This was not easy to find issue. I was calling the function inside the sync_to_async
+
+wrong : await database_sync_to_async(chat_model.save())
+
+wrong : await database_sync_to_async(chat_model.save())()
+
+right : await database_sync_to_async(chat_model.save)()
+
+Q. WHAT IS THE DEFAULT ROUTE IN THE TEMPLATE OF THIS PROJECT?
+A. Its asyncronouswebsocketConsumer
