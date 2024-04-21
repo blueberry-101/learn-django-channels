@@ -125,7 +125,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CHANNEL_LAYER = {
+CHANNEL_LAYERS = {
     "default":{ 
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
