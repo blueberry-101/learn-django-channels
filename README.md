@@ -43,3 +43,11 @@ Here the message is broadcasting to the sender only from the server not to all t
 Basic Implementation of (generic consumers) AsyncWebsocketConsumer
 
 ![Image 7](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric1/info/AsyncWebsocketConsumer.png)
+
+## gzeneric2 (screenshots)
+
+Basic implementation of Channel Layers of Redis in WebsocketConsumer
+
+The message is sent to all the channels added to a group now.
+
+![Image 8](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric2/info/demo-chat.gif)
