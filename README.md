@@ -36,6 +36,8 @@ Basic Chat Room with a common URL
 
 Basic Implementation of (generic consumers) WebsocketConsumer
 
+Here the message is broadcasting to the sender only from the server not to all the connected channels.
+
 ![Image 7](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric1/info/WebsocketConsumer.png)
 
 Basic Implementation of (generic consumers) AsyncWebsocketConsumer
