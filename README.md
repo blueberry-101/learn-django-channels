@@ -51,3 +51,11 @@ Basic implementation of Channel Layers of Redis in WebsocketConsumer
 The message is sent to all the channels added to a group now.
 
 ![Image 8](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric2/info/demo-chat.gif)
+
+## gzeneric3 (screenshots)
+
+Basic Implementation of Database of SQLLite in Websocket Consumer.
+
+This enables the Chat Room to save messages after closing the tab
+
+![Image 9](https://github.com/blueberry-101/learn-django-channels/blob/main/gzeneric3/info/Chat-demo.png)
