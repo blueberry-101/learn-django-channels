@@ -28,22 +28,24 @@ print(list(map_obj))
 """
 
 # The map() function can take multiple iterables as arguments, and the function will be applied to the corresponding elements of each iterable. The map() function stops when the shortest iterable is exhausted.
-numbers = [1, 2, 3, 4, 5]
+numbers1 = [1, 2, 3, 4, 5]
+numbers2 = [6, 7, 8, 9, 10]
 
-def square(x):
-  return x * x
+def add(x, y):
+  return x + y
 
-result = map(square, numbers)
+result = map(add, numbers1, numbers2)
 
 for number in result:
   print(number)
 
 """
-1
-4
+
+7
 9
-16
-25
+11
+13
+15
 """
 
 # filter(function,iterable) 
