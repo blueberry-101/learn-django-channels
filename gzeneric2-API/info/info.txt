@@ -1,0 +1,25 @@
+Q. WHAT YOU HAD LEARNED IN THIS PROJECT?
+A. 
+I had learned about the difference between syncronous and asyncrous classes of websocket consumers by for loop.
+I had learned about making groups and broadcasting message to all the channels in that group.
+
+Q. WHAT WILL YOU CHECK IF YOU ARE FACING THIS ERROR ?
+
+{
+      File "D:\socket\djangochannels\gzeneric2\myapp\consumers.py", line 7, in connect
+    channel = self.channel_name
+              ^^^^^^^^^^^^^^^^^
+    AttributeError: 'MyWSconsumer' object has no attribute 'channel_name'. Did you mean: 'channel_layer'?
+    WebSocket DISCONNECT /ws/gwc/ [127.0.0.1:57251]
+
+}
+
+A. 
+This means the channel_layers in the settings have typos or its not correctly configured.
+
+Q. WHY DO WE USE CHANNEL LAYERS?
+A. 
+So that the two channels can communicate with each other.
+Because on for broad cast a message even two clients from the server you need channel_name and that attribute will only come when you configure your CHANNEL_LAYERS in settings.py
+
+remember when there was typo in CHANNEL_LAYERS the self.channel_layer was returning None.
