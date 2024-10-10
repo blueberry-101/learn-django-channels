@@ -27,6 +27,26 @@ print(list(map_obj))
 
 """
 
+# The map() function can take multiple iterables as arguments, and the function will be applied to the corresponding elements of each iterable. The map() function stops when the shortest iterable is exhausted.
+numbers1 = [1, 2, 3, 4, 5]
+numbers2 = [6, 7, 8, 9, 10]
+
+def add(x, y):
+  return x + y
+
+result = map(add, numbers1, numbers2)
+
+for number in result:
+  print(number)
+
+"""
+
+7
+9
+11
+13
+15
+"""
 
 # filter(function,iterable) 
 
@@ -89,4 +109,4 @@ print(dict(zip_obj))
 (1, 0)
 {2: 9, 3: 8, 4: 7, 5: 6}
 """
-
+# The zip() function in Python takes iterables as input and returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the input iterables. If the iterables are of different lengths, the zip() function stops when the shortest iterable is exhausted.
